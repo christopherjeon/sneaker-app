@@ -1,6 +1,6 @@
 .container {
   padding: 0 10rem !important;
-  background-color: pink;
+  
 }
 
 label {
@@ -19,6 +19,3 @@ h1 {
     font-weight: bold !important;
 }
 
-.input-field {
-    background-color: green !important;
-}
