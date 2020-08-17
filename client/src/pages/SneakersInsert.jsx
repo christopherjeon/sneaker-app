@@ -1,39 +1,18 @@
 import React, { Component } from 'react'
 import api from '../api'
+import '../style/App.css'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 import styled from 'styled-components'
 
-const Title = styled.h1.attrs({
-    className: 'h1',
-})``
-
-const Wrapper = styled.div.attrs({
-    className: 'form-group',
-})`
-    margin: 0 30px;
-`
-
-const Label = styled.label`
-    margin: 5px;
-`
-
-const InputText = styled.input.attrs({
-    className: 'form-control',
-})`
-    margin: 5px;
-`
-
 const Button = styled.button.attrs({
     className: `btn btn-primary`,
-})`
-    margin: 15px 15px 15px 5px;
-`
+})``
 
 const CancelButton = styled.a.attrs({
     className: `btn btn-danger`,
-})`
-    margin: 15px 15px 15px 5px;
-`
+})``
+
 
 class SneakersInsert extends Component {
     constructor(props) {
@@ -83,40 +62,41 @@ class SneakersInsert extends Component {
     render() {
         const { name, brand, price } = this.state
         return (
-            <Wrapper>
-                <Title>Create Sneaker</Title>
+            <form className="container">
+                <h1>Create Sneaker</h1>
+                <Row className="input-field">
+                    <label>Name: </label>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={this.handleChangeInputName}
+                    />
 
-                <Label>Name: </Label>
-                <InputText
-                    type="text"
-                    value={name}
-                    onChange={this.handleChangeInputName}
-                />
+                    <label>Brand: </label>
+                    <input
+                        type="text"
+                        value={brand}
+                        onChange={this.handleChangeInputBrand}
+                    />
 
-                <Label>Brand: </Label>
-                <InputText
-                    type="text"
-                    value={brand}
-                    onChange={this.handleChangeInputBrand}
-                />
+                    <label>Price: </label>
+                    <input
+                        type="number"
+                        lang="en-US"
+                        min="0"
+                        max="100000"
+                        pattern="[0-9]+([,\.][0-9]+)?"
+                        value={price}
+                        onChange={this.handleChangeInputPrice}
+                    />
 
-                <Label>Price: </Label>
-                <InputText
-                    type="number"
-                    step="1"
-                    lang="en-US"
-                    min="0"
-                    max="1000"
-                    pattern="[0-9]+([,\.][0-9]+)?"
-                    value={price}
-                    onChange={this.handleChangeInputPrice}
-                />
 
+                </Row>
 
 
                 <Button onClick={this.handleIncludeSneaker}>Add Sneaker</Button>
                 <CancelButton href={'/sneakers/list'}>Cancel</CancelButton>
-            </Wrapper>
+            </form>
         )
     }
 }

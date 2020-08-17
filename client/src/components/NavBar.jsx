@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import '../style/App.css'
 import Logo from './Logo'
 import Links from './Links'
 
-const Container = styled.div.attrs({
-    className: 'container',
-})`
-    width: 100%
-`
 
 const Nav = styled.nav.attrs({
     className: 'navbar navbar-expand-lg navbar-dark bg-dark',
@@ -19,12 +14,12 @@ const Nav = styled.nav.attrs({
 class NavBar extends Component {
     render() {
         return (
-            <Container>
+            <div>
                 <Nav>
                     <Logo />
                     <Links />
                 </Nav>
-            </Container>
+            </div>
         )
     }
 }

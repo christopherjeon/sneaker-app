@@ -1,0 +1,24 @@
+.container {
+  padding: 0 10rem !important;
+  background-color: pink;
+}
+
+label {
+    margin: 5px !important;
+}
+
+input {
+    margin: 0 20px !important;
+}
+
+.btn {
+    margin: 15px 15px 15px 5px !important;
+}
+
+h1 {
+    font-weight: bold !important;
+}
+
+.input-field {
+    background-color: green !important;
+}
