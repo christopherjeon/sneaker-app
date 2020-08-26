@@ -50,7 +50,7 @@ class SneakersInsert extends Component {
         const payload = { name, brand, price }
 
         await api.insertSneaker(payload).then(res => {
-            window.alert(`Sneaker inserted successfully`)
+            window.alert(`Sneaker inserted successfully!`)
             this.setState({
                 name: '',
                 brand: '',

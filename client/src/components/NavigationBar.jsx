@@ -4,24 +4,20 @@ import '../style/App.css'
 import Logo from './Logo'
 import Links from './Links'
 
+import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap'
 
-const Nav = styled.nav.attrs({
-    className: 'navbar navbar-expand-lg navbar-dark bg-dark',
-})`
-    margin-bottom: 20 px;
-`
 
-class NavBar extends Component {
+class NavigationBar extends Component {
     render() {
         return (
             <div>
-                <Nav>
+                <Navbar bg="primary" variant="dark">
                     <Logo />
                     <Links />
-                </Nav>
+                </Navbar>
             </div>
         )
     }
 }
 
-export default NavBar
+export default NavigationBar
