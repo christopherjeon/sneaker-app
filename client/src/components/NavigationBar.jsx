@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import '../style/App.css'
 import Logo from './Logo'
 import Links from './Links'
 
-import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap'
+import { Navbar } from 'react-bootstrap'
 
 
 class NavigationBar extends Component {

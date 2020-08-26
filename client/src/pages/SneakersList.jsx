@@ -78,24 +78,21 @@ class SneakersList extends Component {
 
         const columns = [
             {
-                Header: 'ID',
-                accessor: '_id',
-                filterable: true,
-            },
-            {
-                Header: 'Name',
+                Header: () => <div style={{ fontWeight: "bolder" }}> Name</div >,
                 accessor: 'name',
                 filterable: true,
+                width: 300
             },
             {
-                Header: 'Brand',
+                Header: () => <div style={{ fontWeight: "bolder" }}> Brand</div >,
                 accessor: 'brand',
                 filterable: true,
             },
             {
-                Header: 'Price',
+                Header: () => <div style={{ fontWeight: "bolder" }}> Price</div >,
                 accessor: 'price',
                 filterable: true,
+                width: 130
             },
             {
                 Header: '',
@@ -107,6 +104,7 @@ class SneakersList extends Component {
                         </span>
                     )
                 },
+                width: 70
             },
             {
                 Header: '',
@@ -118,6 +116,7 @@ class SneakersList extends Component {
                         </span>
                     )
                 },
+                width: 70
             },
         ]
 
@@ -136,6 +135,7 @@ class SneakersList extends Component {
                         defaultPageSize={10}
                         showPageSizeOptions={true}
                         minRows={0}
+                        className="react-table"
                     />
                 )}
             </Wrapper>
