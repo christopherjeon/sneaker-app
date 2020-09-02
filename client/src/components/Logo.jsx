@@ -11,11 +11,9 @@ class Logo extends Component {
     render() {
         return (
 
-
             <Wrapper href="https://www.linkedin.com/in/jeonchristopher/">
                 <img src={logo} width="50" height="50" alt="linkedin.com/in/jeonchristopher/" />
             </Wrapper>
-
 
         )
     }

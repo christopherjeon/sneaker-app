@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import api from '../api'
 import '../style/App.css'
-import { Grid, Row, Col } from 'react-bootstrap'
 
 import styled from 'styled-components'
 
 const Button = styled.button.attrs({
     className: `btn btn-primary`,
-})``
+})`
+    width: 10rem;
+`
 
 const CancelButton = styled.a.attrs({
     className: `btn btn-danger`,
-})``
+})`
+    width: 10rem;
+`
 
 
 class SneakersInsert extends Component {
@@ -62,40 +65,41 @@ class SneakersInsert extends Component {
     render() {
         const { name, brand, price } = this.state
         return (
-            <form className="container">
+            <form className="formContainer">
                 <h1>Create Sneaker</h1>
-                <Row className="input-field">
-                    <label>Name: </label>
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={this.handleChangeInputName}
-                    />
+                <label>Name:</label>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={this.handleChangeInputName}
+                    className="inputField"
+                />
 
-                    <label>Brand: </label>
-                    <input
-                        type="text"
-                        value={brand}
-                        onChange={this.handleChangeInputBrand}
-                    />
+                <label>Brand:</label>
+                <input
+                    type="text"
+                    value={brand}
+                    className="inputField"
+                    onChange={this.handleChangeInputBrand}
+                />
 
-                    <label>Price: </label>
-                    <input
-                        type="number"
-                        lang="en-US"
-                        min="0"
-                        max="100000"
-                        pattern="[0-9]+([,\.][0-9]+)?"
-                        value={price}
-                        onChange={this.handleChangeInputPrice}
-                    />
+                <label>Price:</label>
+                <input
+                    type="number"
+                    lang="en-US"
+                    min="0"
+                    max="100000"
+                    step="0.01"
+                    pattern="[0-9]+([,\.][0-9]+)?"
+                    value={price}
+                    className="inputField"
+                    onChange={this.handleChangeInputPrice}
+                />
+                <div className="btnContainer">
+                    <Button onClick={this.handleIncludeSneaker}>Add Sneaker</Button>
+                    <CancelButton href={'/sneakers/list'}>Cancel</CancelButton>
+                </div>
 
-
-                </Row>
-
-
-                <Button onClick={this.handleIncludeSneaker}>Add Sneaker</Button>
-                <CancelButton href={'/sneakers/list'}>Cancel</CancelButton>
             </form>
         )
     }
