@@ -20,11 +20,11 @@ const CancelButton = styled.a.attrs({
 class SneakersInsert extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             name: '',
             brand: '',
             price: '',
+            size: ''
         }
     }
 
@@ -46,11 +46,19 @@ class SneakersInsert extends Component {
         this.setState({ price })
     }
 
+    handleChangeInputSize = async event => {
+        const size = event.target.validity.valid
+            ? event.target.value
+            : this.state.size
+
+        this.setState({ size })
+    }
+
 
 
     handleIncludeSneaker = async () => {
-        const { name, brand, price } = this.state
-        const payload = { name, brand, price }
+        const { name, brand, price, size } = this.state
+        const payload = { name, brand, price, size }
 
         await api.insertSneaker(payload).then(res => {
             window.alert(`Sneaker inserted successfully!`)
@@ -58,12 +66,13 @@ class SneakersInsert extends Component {
                 name: '',
                 brand: '',
                 price: '',
+                size: '',
             })
         })
     }
 
     render() {
-        const { name, brand, price } = this.state
+        const { name, brand, price, size } = this.state
         return (
             <form className="formContainer">
                 <h1>Create Sneaker</h1>
@@ -94,6 +103,19 @@ class SneakersInsert extends Component {
                     value={price}
                     className="inputField"
                     onChange={this.handleChangeInputPrice}
+                />
+
+                <label>Size:</label>
+                <input
+                    type="number"
+                    lang="en-US"
+                    min="0"
+                    max="100000"
+                    step="0.01"
+                    pattern="[0-9]+([,\.][0-9]+)?"
+                    value={size}
+                    className="inputField"
+                    onChange={this.handleChangeInputSize}
                 />
                 <div className="btnContainer">
                     <Button onClick={this.handleIncludeSneaker}>Add Sneaker</Button>

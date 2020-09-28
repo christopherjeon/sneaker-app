@@ -89,8 +89,14 @@ class SneakersList extends Component {
                 filterable: true,
             },
             {
-                Header: () => <div style={{ fontWeight: "bolder" }}> Price</div >,
+                Header: () => <div style={{ fontWeight: "bolder" }}> Price (USD)</div >,
                 accessor: 'price',
+                filterable: true,
+                width: 130
+            },
+            {
+                Header: () => <div style={{ fontWeight: "bolder" }}> Size (US)</div >,
+                accessor: 'size',
                 filterable: true,
                 width: 130
             },

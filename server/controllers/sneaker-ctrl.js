@@ -53,6 +53,7 @@ updateSneaker = async (req, res) => {
         sneaker.name = body.name
         sneaker.brand = body.brand
         sneaker.price = body.price
+        sneaker.size = body.size
         sneaker
             .save()
             .then(() => {

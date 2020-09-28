@@ -43,7 +43,8 @@ class SneakersUpdate extends Component {
             id: this.props.match.params.id,
             name: '',
             brand: '',
-            price: ''
+            price: '',
+            size: '',
         }
     }
 
@@ -65,9 +66,16 @@ class SneakersUpdate extends Component {
         this.setState({ price })
     }
 
+    handleChangeInputSize = async event => {
+        const size = event.target.validity.valid
+            ? event.target.value
+            : this.state.size
+        this.setState({ size })
+    }
+
     handleUpdateSneaker = async () => {
-        const { id, name, brand, price } = this.state
-        const payload = { name, brand, price }
+        const { id, name, brand, price, size } = this.state
+        const payload = { name, brand, price, size }
 
         await api.updateSneakerById(id, payload).then(res => {
             window.alert("Sneaker update successfully!")
@@ -75,6 +83,7 @@ class SneakersUpdate extends Component {
                 name: '',
                 brand: '',
                 price: '',
+                size: '',
             })
         })
     }
@@ -86,12 +95,13 @@ class SneakersUpdate extends Component {
         this.setState({
             name: sneaker.data.data.name,
             brand: sneaker.data.data.brand,
-            price: sneaker.data.data.price
+            price: sneaker.data.data.price,
+            size: sneaker.data.data.size
         })
     }
 
     render() {
-        const { name, brand, price } = this.state
+        const { name, brand, price, size } = this.state
         return (
             <Wrapper>
                 <Title>Update Sneaker!</Title>
@@ -118,6 +128,16 @@ class SneakersUpdate extends Component {
                     pattern="[0-9]+([,\.][0-9]+)?"
                     value={price}
                     onChange={this.handleChangeInputPrice}
+                />
+
+                <Label>Size: </Label>
+                <InputText
+                    type="number"
+                    step="1"
+                    lang="en-US"
+                    pattern="[0-9]+([,\.][0-9]+)?"
+                    value={size}
+                    onChange={this.handleChangeInputSize}
                 />
 
                 <Button onClick={this.handleUpdateSneaker}>Update Sneaker</Button>
