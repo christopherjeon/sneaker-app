@@ -33,6 +33,11 @@ class Links extends Component {
                                 Create Sneaker
                             </Link>
                         </Item>
+                        <Item>
+                            <Link to="/sneakers/about" className="nav-link">
+                                About
+                            </Link>
+                        </Item>
                     </List>
                 </Collapse>
             </React.Fragment>
