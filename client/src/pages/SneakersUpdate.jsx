@@ -3,14 +3,8 @@ import api from '../api'
 
 import styled from 'styled-components'
 
-const Title = styled.h1.attrs({
-    className: 'h1',
-})``
-
-const Wrapper = styled.div.attrs({
-    className: 'form-group',
-})`
-    margin: 0 30px;
+const Title = styled.h1.attrs()`
+    color: palevioletred;
 `
 
 const Label = styled.label`
@@ -103,7 +97,7 @@ class SneakersUpdate extends Component {
     render() {
         const { name, brand, price, size } = this.state
         return (
-            <Wrapper>
+            <React.Fragment>
                 <Title>Update Sneaker!</Title>
 
                 <Label>Name: </Label>
@@ -142,7 +136,7 @@ class SneakersUpdate extends Component {
 
                 <Button onClick={this.handleUpdateSneaker}>Update Sneaker</Button>
                 <CancelButton href={'/sneakers/list'}>Cancel</CancelButton>
-            </Wrapper>
+            </React.Fragment>
         )
     }
 }

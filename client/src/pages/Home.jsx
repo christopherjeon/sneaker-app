@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Jumbotron, Container, Carousel } from 'react-bootstrap'
+import { Jumbotron, Carousel } from 'react-bootstrap'
 import blacktoes from '../images/blacktoes.jpg'
 import guavas from '../images/guavas.jpg'
 
@@ -7,13 +7,11 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbotron fluid style={jumboStyles}>
-                    <Container>
-                        <h1>Welcome to the Sneaker Wishlist App!</h1>
-                        <p>
-                            Keep track of the shoes you've been eyeing and hopefully will cop soon!
+                <Jumbotron fluid bsPrefix="testtest">
+                    <h1>Welcome to the Snkr Portfolio App!</h1>
+                    <p>
+                        Grow your collection!
                     </p>
-                    </Container>
                 </Jumbotron>
                 <div>
                     <Carousel className="caro">
@@ -49,16 +47,6 @@ class Home extends Component {
 
         )
     }
-
-}
-
-const jumboStyles = {
-    backgroundColor: '#F4F0DB',
-    textAlign: 'center',
-    marginTop: '5px',
-    marginBottom: '5px',
-    paddingTop: '15px',
-    paddingBottom: '15px'
 
 }
 

@@ -9,17 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
     <Router>
-      <div className="container">
         <NavigationBar />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/sneakers/list" exact component={SneakersList} />
           <Route path="/sneakers/create" exact component={SneakersInsert} />
           <Route path="/sneakers/update/:id" exact component={SneakersUpdate} />
-          <Route path="/sneakers/about" exact component={About} />
+          <Route path="/about" exact component={About} />
         </Switch>
-      </div>
-
     </Router>
   )
 }
