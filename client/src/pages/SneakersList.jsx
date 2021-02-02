@@ -1,24 +1,8 @@
 import React, { Component } from 'react'
 import ReactTable from 'react-table-6'
 import api from '../api'
-
-import styled from 'styled-components'
-
+import { Button } from 'react-bootstrap'
 import 'react-table/react-table.css'
-
-const Wrapper = styled.div`
-    padding: 10px 60px 40px 60px;
-`
-
-const Update = styled.div`
-    color: #ef9b0f;
-    cursor: pointer;
-`
-
-const Delete = styled.div`
-    color: #ff0000;
-    cursor: pointer;
-`
 
 class UpdateSneaker extends Component {
     updateUser = event => {
@@ -28,7 +12,7 @@ class UpdateSneaker extends Component {
     }
 
     render() {
-        return <Update onClick={this.updateUser}>Update</Update>
+        return <Button variant="primary" size="sm" onClick={this.updateUser}>Update</Button>
     }
 }
 
@@ -47,7 +31,7 @@ class DeleteSneaker extends Component {
     }
 
     render() {
-        return <Delete onClick={this.deleteUser}>Delete</Delete>
+        return <Button variant="danger" size="sm" onClick={this.deleteUser}>Delete</Button>
     }
 }
 
@@ -132,7 +116,7 @@ class SneakersList extends Component {
         }
 
         return (
-            <Wrapper>
+            <div>
                 {showTable && (
                     <ReactTable
                         data={sneakers}
@@ -144,7 +128,7 @@ class SneakersList extends Component {
                         className="react-table"
                     />
                 )}
-            </Wrapper>
+            </div>
         )
     }
 }

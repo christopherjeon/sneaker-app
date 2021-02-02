@@ -1,21 +1,7 @@
 import React, { Component } from 'react'
 import api from '../api'
+import { Button } from 'react-bootstrap'
 import '../style/App.css'
-
-import styled from 'styled-components'
-
-const Button = styled.button.attrs({
-    className: `btn btn-primary`,
-})`
-    width: 10rem;
-`
-
-const CancelButton = styled.a.attrs({
-    className: `btn btn-danger`,
-})`
-    width: 10rem;
-`
-
 
 class SneakersInsert extends Component {
     constructor(props) {
@@ -118,8 +104,8 @@ class SneakersInsert extends Component {
                     onChange={this.handleChangeInputSize}
                 />
                 <div className="btnContainer">
-                    <Button onClick={this.handleIncludeSneaker}>Add Sneaker</Button>
-                    <CancelButton href={'/sneakers/list'}>Cancel</CancelButton>
+                    <Button variant="primary" onClick={this.handleIncludeSneaker}>Add Sneaker</Button>
+                    <Button variant="danger" href={'/sneakers/list'}>Cancel</Button>
                 </div>
 
             </form>

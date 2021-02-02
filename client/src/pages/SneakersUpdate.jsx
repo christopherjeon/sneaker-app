@@ -1,33 +1,7 @@
 import React, { Component } from 'react'
 import api from '../api'
+import { Button, Form } from 'react-bootstrap'
 
-import styled from 'styled-components'
-
-const Title = styled.h1.attrs()`
-    color: palevioletred;
-`
-
-const Label = styled.label`
-    margin: 5px;
-`
-
-const InputText = styled.input.attrs({
-    className: 'form-control',
-})`
-    margin: 5px;
-`
-
-const Button = styled.button.attrs({
-    className: `btn btn-primary`,
-})`
-    margin: 15px 15px 15px 5px;
-`
-
-const CancelButton = styled.a.attrs({
-    className: `btn btn-danger`,
-})`
-    margin: 15px 15px 15px 5px;
-`
 
 class SneakersUpdate extends Component {
     constructor(props) {
@@ -98,44 +72,34 @@ class SneakersUpdate extends Component {
         const { name, brand, price, size } = this.state
         return (
             <React.Fragment>
-                <Title>Update Sneaker!</Title>
+                <h1>Update Sneaker!</h1>
 
-                <Label>Name: </Label>
-                <InputText
-                    type="text"
-                    value={name}
-                    onChange={this.handleChangeInputName}
-                />
+                <Form>
+                    <Form.Group>
+                        <Form.Label>Name: </Form.Label>
+                        <Form.Control value={name} onChange={this.handleChangeInputName} />
 
-                <Label>Brand: </Label>
-                <InputText
-                    type="text"
-                    value={brand}
-                    onChange={this.handleChangeInputBrand}
-                />
 
-                <Label>Price: </Label>
-                <InputText
-                    type="number"
-                    step="1"
-                    lang="en-US"
-                    pattern="[0-9]+([,\.][0-9]+)?"
-                    value={price}
-                    onChange={this.handleChangeInputPrice}
-                />
 
-                <Label>Size: </Label>
-                <InputText
-                    type="number"
-                    step="1"
-                    lang="en-US"
-                    pattern="[0-9]+([,\.][0-9]+)?"
-                    value={size}
-                    onChange={this.handleChangeInputSize}
-                />
+                        <Form.Label>Brand: </Form.Label>
+                        <Form.Control value={brand} onChange={this.handleChangeInputBrand} />
 
-                <Button onClick={this.handleUpdateSneaker}>Update Sneaker</Button>
-                <CancelButton href={'/sneakers/list'}>Cancel</CancelButton>
+
+                        <Form.Label>Price: </Form.Label>
+                        <Form.Control value={price} onChange={this.handleChangeInputPrice} />
+
+
+                        <Form.Label>Size: </Form.Label>
+                        <Form.Control value={size} onChange={this.handleChangeInputSize} />
+
+
+                    </Form.Group>
+
+
+                </Form>
+
+                <Button variant="primary" onClick={this.handleUpdateSneaker}>Update Sneaker</Button>
+                <Button variant="danger" href={'/sneakers/list'}>Cancel</Button>
             </React.Fragment>
         )
     }
